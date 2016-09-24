@@ -1,0 +1,21 @@
+crime <- read.csv("crime", header=T)
+summary(crime)
+
+x <- crime$x
+y <- crime$y
+
+reg <- lm(y ~ x)
+
+summary(reg)
+
+#plot(crime$x, crime$y)
+#abline(reg)
+
+
+#png('28-scatter.png')
+#plot(crime$x, crime$y)
+#abline(reg)
+#dev.off()
+
+
+predict(reg, data.frame(x=80))
