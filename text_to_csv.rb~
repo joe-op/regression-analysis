@@ -1,0 +1,19 @@
+print "File? "
+file = gets.chomp
+
+lines = []
+File.open(file, "r") do|f|
+  while(line = f.gets)
+    lines.push(line)
+  end
+
+  lines.map {|x| x.gsub(/^\s+/, "")}
+  lines.map {|x| x.gsub(/\s+/, ",")}
+end
+
+File.open(file, "w") do|f|
+  lines.each do|line|
+    f.puts line
+  end
+end
+  
