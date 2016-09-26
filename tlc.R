@@ -29,3 +29,21 @@ predict(reg, new, se.fit=T, interval="prediction", level=0.9)
 
 ### 90% confidence in the estimate
 predict(reg, new, se.fit=T, interval="confidence", level=0.9)
+
+
+
+
+plot(reg)  ## first plot is residuals vs. fitted; check for constant variance (scattered around 0 line)
+
+yhat <- fitted(reg) ## can get first plot without plot(reg), using e below
+
+e <- residuals(reg)
+plot(x, e) ## scattered around 0 line -> constant variance
+
+## look for outliers
+## b$out == 0 indicates no outliers
+b <- boxplot(e, horizontal=T)
+
+## can use instead of QQ Norm in plot(reg)
+qqnorm(e); qqline(e)
+
