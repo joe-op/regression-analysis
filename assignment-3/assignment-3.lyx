@@ -239,10 +239,6 @@ c) the p value from the anova table is 0.002917 which is less than .05 so
 
 \end_layout
 
-\begin_layout Subsection
-Notes
-\end_layout
-
 \begin_layout Section
 2.6 a)-d)
 \end_layout
@@ -746,11 +742,6 @@ anova(reg)
 summary(reg)
 \end_layout
 
-\begin_layout Plain Layout
-
-#e.) R^2= .7501
-\end_layout
-
 \end_inset
 
 
@@ -761,11 +752,71 @@ Output
 \end_layout
 
 \begin_layout Itemize
-*List*
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+ Analysis of Variance Table
 \end_layout
 
-\begin_layout Subsection
-Notes
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ Response: y
+\end_layout
+
+\begin_layout Plain Layout
+
+           Df  Sum Sq Mean Sq F value    Pr(>F)
+\end_layout
+
+\begin_layout Plain Layout
+
+ x          1 11627.5 11627.5  174.06 < 2.2e-16 ***
+\end_layout
+
+\begin_layout Plain Layout
+
+ Residuals 58  3874.4    66.8
+\end_layout
+
+\begin_layout Plain Layout
+
+ ---
+\end_layout
+
+\begin_layout Plain Layout
+
+ Signif.
+ codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $R^{2}=0.7501$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $r=\sqrt{0.7501}=0.8661$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -851,11 +902,21 @@ Output
 \end_layout
 
 \begin_layout Itemize
-*List*
+ANOVA p-value: 0.00009571 < 0.05 so therefore there is a linear association
+ between crime rates and high school graduates
 \end_layout
 
-\begin_layout Subsection
-Notes
+\begin_layout Itemize
+99% confidence interval for 
+\begin_inset Formula $\beta_{1}$
+\end_inset
+
+is 
+\begin_inset Formula $(-0.0016,-0.0036)$
+\end_inset
+
+, Which means that with every increase of one high school graduate there
+ is a decrease somewhere in that range of a percentage
 \end_layout
 
 \end_body

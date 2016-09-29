@@ -89,7 +89,7 @@ Joe Opseth, Jeff Bergh, Tyson Tellers
 \end_layout
 
 \begin_layout Subsection
-Code
+R 
 \end_layout
 
 \begin_layout Standard
@@ -239,16 +239,12 @@ c) the p value from the anova table is 0.002917 which is less than .05 so
 
 \end_layout
 
-\begin_layout Subsection
-Notes
-\end_layout
-
 \begin_layout Section
 2.6 a)-d)
 \end_layout
 
 \begin_layout Subsection
-Code
+R 
 \end_layout
 
 \begin_layout Standard
@@ -350,7 +346,7 @@ C.
 \end_layout
 
 \begin_layout Subsection
-Code
+R 
 \end_layout
 
 \begin_layout Standard
@@ -419,7 +415,7 @@ The prediction interval is bigger and it should be because it is harder
 \end_layout
 
 \begin_layout Subsection
-Code
+R 
 \end_layout
 
 \begin_layout Standard
@@ -540,7 +536,7 @@ Output
 \end_layout
 
 \begin_layout Subsection
-Code
+R 
 \end_layout
 
 \begin_layout Standard
@@ -631,7 +627,7 @@ explained
 \end_layout
 
 \begin_layout Subsection
-Code
+R 
 \end_layout
 
 \begin_layout Standard
@@ -713,7 +709,7 @@ The prediction is not very precise.
 \end_layout
 
 \begin_layout Subsection
-Code
+R 
 \end_layout
 
 \begin_layout Standard
@@ -773,7 +769,7 @@ Notes
 \end_layout
 
 \begin_layout Subsection
-Code
+R 
 \end_layout
 
 \begin_layout Standard
@@ -851,11 +847,21 @@ Output
 \end_layout
 
 \begin_layout Itemize
-*List*
+ANOVA p-value: 0.00009571 < 0.05 so therefore there is a linear association
+ between crime rates and high school graduates
 \end_layout
 
-\begin_layout Subsection
-Notes
+\begin_layout Itemize
+99% confidence interval for 
+\begin_inset Formula $\beta_{1}$
+\end_inset
+
+is 
+\begin_inset Formula $(-0.0016,-0.0036)$
+\end_inset
+
+, Which means that with every increase of one high school graduate there
+ is a decrease somewhere in that range of a percentage
 \end_layout
 
 \end_body
