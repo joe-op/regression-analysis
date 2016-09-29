@@ -89,7 +89,7 @@ Joe Opseth, Jeff Bergh, Tyson Tellers
 \end_layout
 
 \begin_layout Subsection
-Code
+R 
 \end_layout
 
 \begin_layout Standard
@@ -99,7 +99,32 @@ status open
 
 \begin_layout Plain Layout
 
-*R Code*
+attach(GPA)
+\end_layout
+
+\begin_layout Plain Layout
+
+reg=lm(V1~V2)
+\end_layout
+
+\begin_layout Plain Layout
+
+anova(reg)
+\end_layout
+
+\begin_layout Plain Layout
+
+summary(reg)
+\end_layout
+
+\begin_layout Plain Layout
+
+confint(reg,level=.99)
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(V2~V1)
 \end_layout
 
 \end_inset
@@ -112,7 +137,106 @@ Output
 \end_layout
 
 \begin_layout Itemize
-*List*
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+a) 99% confidence interval for 
+\begin_inset Formula $\beta_{1}$
+\end_inset
+
+is 
+\begin_inset Formula $(1.2739,2.9542)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+this shows that a person will be 99% confident that any GPA they observe
+ will be in this range.
+ it does not include 0 in the confidence interval and he would be interested
+ because if you got a 0 for the confidence interval of B1 then it could
+ mean there is no correlation between the data
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+b) 
+\begin_inset Formula $H_{0}:\:\beta_{0}=\beta_{1}=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+the p-value is 0.002917, < 0.05, so we reject 
+\begin_inset Formula $H_{0}$
+\end_inset
+
+and go with 
+\begin_inset Formula $H_{a}$
+\end_inset
+
+ that there is some inequality in the data
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+c) the p value from the anova table is 0.002917 which is less than .05 so
+ we would reject that B0=B1=0 so there is some correlation between GPA and
+ what you score on the ACT
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -124,7 +248,7 @@ Notes
 \end_layout
 
 \begin_layout Subsection
-Code
+R 
 \end_layout
 
 \begin_layout Standard
@@ -134,7 +258,22 @@ status open
 
 \begin_layout Plain Layout
 
-*R Code*
+attach(airfreight)
+\end_layout
+
+\begin_layout Plain Layout
+
+reg=lm(V1~V2)
+\end_layout
+
+\begin_layout Plain Layout
+
+confint(reg,level=.95)
+\end_layout
+
+\begin_layout Plain Layout
+
+anova(reg)
 \end_layout
 
 \end_inset
@@ -147,11 +286,63 @@ Output
 \end_layout
 
 \begin_layout Itemize
-*List*
+\begin_inset Formula $\beta_{0}$
+\end_inset
+
+ confidence interval: (2.9184, 5.0816)
+\end_layout
+
+\begin_layout Itemize
+p-value: 2.749e-05
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\beta_{1}$
+\end_inset
+
+ confidence interval: (8.6704, 11.7296)
 \end_layout
 
 \begin_layout Subsection
 Notes
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+A.
+ we are 95% confident that with an increase of changes in a shipment then
+ there will be between 2.918388 and 5.081612 more ampules broken on average
+\end_layout
+
+\begin_layout Plain Layout
+B.
+ there is a correlation between the data going from the p value in the ANOVA
+ table basically being 0 or exactly 2.749e-05 so we reject H0 that B1=B2=0
+ meaning that there should be a linear correlation
+\end_layout
+
+\begin_layout Plain Layout
+C.
+ we are 95% sure the average number of ampules broken when there is no transfers
+ of shipments is 8.670370 to 11.72963
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -159,7 +350,7 @@ Notes
 \end_layout
 
 \begin_layout Subsection
-Code
+R 
 \end_layout
 
 \begin_layout Standard
@@ -169,7 +360,32 @@ status open
 
 \begin_layout Plain Layout
 
-*R Code*
+attach(GPA)
+\end_layout
+
+\begin_layout Plain Layout
+
+reg=lm(V1~V2)
+\end_layout
+
+\begin_layout Plain Layout
+
+new=data.frame(V2=28)
+\end_layout
+
+\begin_layout Plain Layout
+
+predict(reg,new,se.fit=T,interval="confidence",level=.95)
+\end_layout
+
+\begin_layout Plain Layout
+
+new=data.frame(V2=28)
+\end_layout
+
+\begin_layout Plain Layout
+
+predict(reg,new,se.fit=T,interval="prediction",level=.95)
 \end_layout
 
 \end_inset
@@ -182,11 +398,20 @@ Output
 \end_layout
 
 \begin_layout Itemize
-*List*
+95% confidence interval for GPA given ACT=28: (3.0614, 3.3410)
+\end_layout
+
+\begin_layout Itemize
+95% prediction interval for GPA given ACT=28: (1.9594, 4.4431)
 \end_layout
 
 \begin_layout Subsection
 Notes
+\end_layout
+
+\begin_layout Standard
+The prediction interval is bigger and it should be because it is harder
+ to predict what will happen than it is to see an interval with actual data
 \end_layout
 
 \begin_layout Section
@@ -194,7 +419,7 @@ Notes
 \end_layout
 
 \begin_layout Subsection
-Code
+R 
 \end_layout
 
 \begin_layout Standard
@@ -315,7 +540,7 @@ Output
 \end_layout
 
 \begin_layout Subsection
-Code
+R 
 \end_layout
 
 \begin_layout Standard
@@ -406,7 +631,7 @@ explained
 \end_layout
 
 \begin_layout Subsection
-Code
+R 
 \end_layout
 
 \begin_layout Standard
@@ -488,7 +713,7 @@ The prediction is not very precise.
 \end_layout
 
 \begin_layout Subsection
-Code
+R 
 \end_layout
 
 \begin_layout Standard
@@ -548,7 +773,7 @@ Notes
 \end_layout
 
 \begin_layout Subsection
-Code
+R 
 \end_layout
 
 \begin_layout Standard
