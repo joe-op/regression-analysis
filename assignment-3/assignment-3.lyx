@@ -1,0 +1,637 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+\usepackage{enumerate}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2cm
+\topmargin 2cm
+\rightmargin 2cm
+\bottommargin 2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Group Assignment 3
+\end_layout
+
+\begin_layout Author
+Joe Opseth, Jeff Bergh, Tyson Tellers
+\end_layout
+
+\begin_layout Section
+2.4
+\end_layout
+
+\begin_layout Subsection
+Code
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+*R Code*
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Output
+\end_layout
+
+\begin_layout Itemize
+*List*
+\end_layout
+
+\begin_layout Subsection
+Notes
+\end_layout
+
+\begin_layout Section
+2.6 a)-d)
+\end_layout
+
+\begin_layout Subsection
+Code
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+*R Code*
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Output
+\end_layout
+
+\begin_layout Itemize
+*List*
+\end_layout
+
+\begin_layout Subsection
+Notes
+\end_layout
+
+\begin_layout Section
+2.13
+\end_layout
+
+\begin_layout Subsection
+Code
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+*R Code*
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Output
+\end_layout
+
+\begin_layout Itemize
+*List*
+\end_layout
+
+\begin_layout Subsection
+Notes
+\end_layout
+
+\begin_layout Section
+2.15
+\end_layout
+
+\begin_layout Subsection
+Code
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+airfreight <- read.csv("airfreight.csv", header=F)
+\end_layout
+
+\begin_layout Plain Layout
+
+x <- airfreight$V1; y <- airfreight$V2
+\end_layout
+
+\begin_layout Plain Layout
+
+reg <- lm(y~x)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+### Mean breakage confidence intervals for X=2,4
+\end_layout
+
+\begin_layout Plain Layout
+
+### 99% chance that the true mean number of broken ampules is in this interval
+\end_layout
+
+\begin_layout Plain Layout
+
+predict(reg, data.frame(x=2), se.fit=T, interval="confidence", level=0.99)
+\end_layout
+
+\begin_layout Plain Layout
+
+predict(reg, data.frame(x=4), se.fit=T, interval="confidence", level=0.99)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+### Predict broken ampules for the next 2-transfer shipment
+\end_layout
+
+\begin_layout Plain Layout
+
+### 99% chance that the number of broken ampules for the next shipment will
+ be in this interval
+\end_layout
+
+\begin_layout Plain Layout
+
+predict(reg, data.frame(x=2), se.fit=T, interval="prediction", level=0.99)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Output
+\end_layout
+
+\begin_layout Itemize
+99% confidence interval for 
+\begin_inset Formula $x=2$
+\end_inset
+
+: 
+\begin_inset Formula $(15.97,20.43)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+99% confidence interval for 
+\begin_inset Formula $x=4$
+\end_inset
+
+: 
+\begin_inset Formula $(21.22,31.18)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+99% prediction interval for 
+\begin_inset Formula $x=2$
+\end_inset
+
+: 
+\begin_inset Formula $(12.75,23.65)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+2.25
+\end_layout
+
+\begin_layout Subsection
+Code
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+airfreight <- read.csv("airfreight.csv", header=F)
+\end_layout
+
+\begin_layout Plain Layout
+
+x <- airfreight$V1; y <- airfreight$V2
+\end_layout
+
+\begin_layout Plain Layout
+
+reg <- lm(y~x)
+\end_layout
+
+\begin_layout Plain Layout
+
+anova(reg)
+\end_layout
+
+\begin_layout Plain Layout
+
+summary(reg)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Output
+\end_layout
+
+\begin_layout Itemize
+p = 2.7e-05
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $R^{2}=0.9009$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $r=\sqrt{R^{2}}=0.9492$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Notes
+\end_layout
+
+\begin_layout Itemize
+b) The p-value is 2.7e-05, which is less than 0.05, so we can reject the null
+ hypothesis (that 
+\begin_inset Formula $\beta_{1}=0$
+\end_inset
+
+) and conclude there is some linear association between transfers and broken
+ ampules.
+\end_layout
+
+\begin_layout Itemize
+d) 90% of Y's variation is 
+\begin_inset Quotes eld
+\end_inset
+
+explained
+\begin_inset Quotes erd
+\end_inset
+
+ by X
+\end_layout
+
+\begin_layout Section
+2.28 a), b)
+\end_layout
+
+\begin_layout Subsection
+Code
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+muscle <- read.csv("muscle.csv", header=T)
+\end_layout
+
+\begin_layout Plain Layout
+
+x <- muscle$age; y <- muscle$mass
+\end_layout
+
+\begin_layout Plain Layout
+
+reg <- lm(y~x)
+\end_layout
+
+\begin_layout Plain Layout
+
+predict(reg, data.frame(x=60), se.fit=T, interval="confidence", level=0.95)
+\end_layout
+
+\begin_layout Plain Layout
+
+predict(reg, data.frame(x=60), se.fit=T, interval="prediction", level=0.95)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Output
+\end_layout
+
+\begin_layout Itemize
+95% confidence interval: 
+\begin_inset Formula $(82.83,87.06)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+95% prediction interval: 
+\begin_inset Formula $(68.45,101.44)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Notes
+\end_layout
+
+\begin_layout Itemize
+95% sure that the mean muscle mass for women age 60 is between 82.83 and
+ 87.06
+\end_layout
+
+\begin_layout Itemize
+95% sure that a random woman age 60 will have a muscle mass between 68.45
+ and 101.44
+\end_layout
+
+\begin_layout Itemize
+The prediction is not very precise.
+ The range of the data is (52, 119), so this is almost the entire range.
+\end_layout
+
+\begin_layout Section
+2.29 b), e)
+\end_layout
+
+\begin_layout Subsection
+Code
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+attach(musclemass)
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(V1,V2)
+\end_layout
+
+\begin_layout Plain Layout
+
+reg=lm(V2~V1)
+\end_layout
+
+\begin_layout Plain Layout
+
+anova(reg) 
+\end_layout
+
+\begin_layout Plain Layout
+
+summary(reg)
+\end_layout
+
+\begin_layout Plain Layout
+
+#e.) R^2= .7501
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Output
+\end_layout
+
+\begin_layout Itemize
+*List*
+\end_layout
+
+\begin_layout Subsection
+Notes
+\end_layout
+
+\begin_layout Section
+2.30 a), b)
+\end_layout
+
+\begin_layout Subsection
+Code
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+attach(crimerate)
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(V1,V2)
+\end_layout
+
+\begin_layout Plain Layout
+
+reg=lm(V2~V1)
+\end_layout
+
+\begin_layout Plain Layout
+
+anova(reg)
+\end_layout
+
+\begin_layout Plain Layout
+
+summary(reg)
+\end_layout
+
+\begin_layout Plain Layout
+
+confint(reg, level=0.99)
+\end_layout
+
+\begin_layout Plain Layout
+
+#a.)with a p value of .00009571 its < 0.05 so therefore there 
+\end_layout
+
+\begin_layout Plain Layout
+
+# is a linear association between crime rates and high school
+\end_layout
+
+\begin_layout Plain Layout
+
+# graduates
+\end_layout
+
+\begin_layout Plain Layout
+
+#b.)-0.001640328<B1<-0.003567273 with a 99% confidence level.
+\end_layout
+
+\begin_layout Plain Layout
+
+# Which means that with every increase of one high school graduate
+\end_layout
+
+\begin_layout Plain Layout
+
+# there is a decrease somewhere in that range of a percentage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Output
+\end_layout
+
+\begin_layout Itemize
+*List*
+\end_layout
+
+\begin_layout Subsection
+Notes
+\end_layout
+
+\end_body
+\end_document

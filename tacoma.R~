@@ -1,8 +1,0 @@
-tacoma <- read.csv("tacoma.csv", header=T)
-x <- tacoma$lot; y <- tacoma$hours
-
-reg <- lm(y~x)
-sm <- summary(reg)
-
-### estimated variance
-sm$sigma^2
