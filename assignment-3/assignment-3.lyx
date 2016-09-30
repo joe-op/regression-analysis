@@ -370,9 +370,7 @@ status open
 
 $H_{0}=
 \backslash
-beta_{0}
-\backslash
-le9$
+beta_{0}>9$
 \end_layout
 
 \end_inset
@@ -389,7 +387,9 @@ status open
 
 $H_{a}=
 \backslash
-beta_{0}>9$
+beta_{0}
+\backslash
+le9$
 \end_layout
 
 \end_inset
@@ -398,13 +398,12 @@ beta_{0}>9$
 \end_layout
 
 \begin_layout Itemize
-T-statistic: 
 \begin_inset ERT
 status open
 
 \begin_layout Plain Layout
 
-$
+$t^{*}=
 \backslash
 frac{
 \backslash
@@ -457,7 +456,7 @@ status open
 
 \begin_layout Plain Layout
 
-$97.5^{th}$ percentile of $t_{8}=qt(0.975,df=8)=2.31>1.81$
+$97.5^{th}$ percentile of $t_{8}=t=qt(0.975,df=8)=2.31$
 \end_layout
 
 \end_inset
@@ -466,9 +465,20 @@ $97.5^{th}$ percentile of $t_{8}=qt(0.975,df=8)=2.31>1.81$
 \end_layout
 
 \begin_layout Itemize
-Since the area is greater than the t-statistic, we reject the null hypothesis.
- The mean of broken ampules when there are no transfers is greater than
- 9.
+Rejection region 
+\begin_inset Formula $(2.31,\infty)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Since 
+\begin_inset Formula $t^{*}<t$
+\end_inset
+
+, we fail to reject the null hypothesis (that the mean number of ampules
+ broken when there are no transfers is greater than 9)
 \end_layout
 
 \end_inset

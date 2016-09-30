@@ -370,9 +370,7 @@ status open
 
 $H_{0}=
 \backslash
-beta_{0}
-\backslash
-le9$
+beta_{0}>9$
 \end_layout
 
 \end_inset
@@ -387,11 +385,11 @@ status open
 
 \begin_layout Plain Layout
 
-$H_a=
+$H_{a}=
 \backslash
-beta{0}
+beta_{0}
 \backslash
-gt9$
+le9$
 \end_layout
 
 \end_inset
@@ -443,9 +441,9 @@ status open
 
 \begin_layout Plain Layout
 
-1-
+$1-
 \backslash
-alpha=0.975
+alpha=0.975$
 \end_layout
 
 \end_inset
@@ -459,9 +457,7 @@ status open
 
 \begin_layout Plain Layout
 
-97.5_{th} percentile of $t_{8}=qt(0.975,df=8)=2.31
-\backslash
-gt1.81$
+$97.5^{th}$ percentile of $t_{8}=qt(0.975,df=8)=2.31$
 \end_layout
 
 \end_inset
@@ -470,9 +466,17 @@ gt1.81$
 \end_layout
 
 \begin_layout Itemize
-Since the area is greater than the t-statistic, we reject the null hypothesis.
- The mean of broken ampules at when there are no transfers is greater than
- 9.
+Rejection region 
+\begin_inset Formula $(2.31,\infty)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Since 1.81 is not in the rejection region, we fail to reject the null hypothesis
+ (that the mean number of ampules broken when there are no transfers is
+ greater than 9)
 \end_layout
 
 \end_inset
