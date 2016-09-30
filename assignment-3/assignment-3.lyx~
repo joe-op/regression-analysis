@@ -272,6 +272,16 @@ confint(reg,level=.95)
 anova(reg)
 \end_layout
 
+\begin_layout Plain Layout
+
+summary(reg) # Intercept se = 0.6633
+\end_layout
+
+\begin_layout Plain Layout
+
+qt(0.975, df=8)
+\end_layout
+
 \end_inset
 
 
@@ -297,6 +307,17 @@ p-value: 2.749e-05
 \end_inset
 
  confidence interval: (8.6704, 11.7296)
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $97.5^{th}$
+\end_inset
+
+percentile with 
+\begin_inset Formula $8df$
+\end_inset
+
+ : 2.31
 \end_layout
 
 \begin_layout Subsection
@@ -334,6 +355,124 @@ B.
 C.
  we are 95% sure the average number of ampules broken when there is no transfers
  of shipments is 8.670370 to 11.72963
+\end_layout
+
+\begin_layout Plain Layout
+D:
+\end_layout
+
+\begin_layout Itemize
+Null hypothesis: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$H_{0}=
+\backslash
+beta_{0}
+\backslash
+le9$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Alternative hypothesis: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$H_a=
+\backslash
+beta{0}
+\backslash
+gt9$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+T-statistic: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+frac{
+\backslash
+hat{
+\backslash
+beta_{0}}-9}{s}=
+\backslash
+frac{10.2-9}{0.6633}=1.81$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$df=10-2=8$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Percentile = 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+1-
+\backslash
+alpha=0.975
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+97.5_{th} percentile of $t_{8}=qt(0.975,df=8)=2.31
+\backslash
+gt1.81$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Since the area is greater than the t-statistic, we reject the null hypothesis.
+ The mean of broken ampules at when there are no transfers is greater than
+ 9.
 \end_layout
 
 \end_inset
@@ -742,11 +881,6 @@ anova(reg)
 summary(reg)
 \end_layout
 
-\begin_layout Plain Layout
-
-#e.) R^2= .7501
-\end_layout
-
 \end_inset
 
 
@@ -757,11 +891,71 @@ Output
 \end_layout
 
 \begin_layout Itemize
-*List*
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+ Analysis of Variance Table
 \end_layout
 
-\begin_layout Subsection
-Notes
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ Response: y
+\end_layout
+
+\begin_layout Plain Layout
+
+           Df  Sum Sq Mean Sq F value    Pr(>F)
+\end_layout
+
+\begin_layout Plain Layout
+
+ x          1 11627.5 11627.5  174.06 < 2.2e-16 ***
+\end_layout
+
+\begin_layout Plain Layout
+
+ Residuals 58  3874.4    66.8
+\end_layout
+
+\begin_layout Plain Layout
+
+ ---
+\end_layout
+
+\begin_layout Plain Layout
+
+ Signif.
+ codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $R^{2}=0.7501$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $r=\sqrt{0.7501}=0.8661$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
