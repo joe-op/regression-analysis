@@ -1,0 +1,6 @@
+gpax <- read.csv("gpax.csv", header=T)
+
+y <- gpax$gpa
+x1 <- gpax$act
+x2 <- gpax$int
+x3 <- gpax$rank
