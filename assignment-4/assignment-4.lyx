@@ -1504,7 +1504,62 @@ x2         1   3986  3986.5   2.244 0.1414
 
 \begin_layout Plain Layout
 
-Residuals 43  76390  1776.5  
+Residuals 43  76390  1776.5
+\end_layout
+
+\begin_layout Plain Layout
+
+## Try transformation y=y^2
+\end_layout
+
+\begin_layout Plain Layout
+
+## Also tried transformations for x (sqrt(x), x^2, log(x, 10))
+\end_layout
+
+\begin_layout Plain Layout
+
+> anova(lm(sqrt(y)~x2))
+\end_layout
+
+\begin_layout Plain Layout
+
+Analysis of Variance Table
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Response: sqrt(y)
+\end_layout
+
+\begin_layout Plain Layout
+
+          Df Sum Sq Mean Sq F value  Pr(>F)  
+\end_layout
+
+\begin_layout Plain Layout
+
+x2         1  21.99 21.9867  2.9337 0.09395 .
+\end_layout
+
+\begin_layout Plain Layout
+
+Residuals 43 322.26  7.4945                  
+\end_layout
+
+\begin_layout Plain Layout
+
+---
+\end_layout
+
+\begin_layout Plain Layout
+
+Signif.
+ codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 \end_layout
 
 \end_inset
