@@ -294,7 +294,47 @@ status open
 
 \begin_layout Plain Layout
 
-# ANOVA Table
+> anova(reg1)
+\end_layout
+
+\begin_layout Plain Layout
+
+Analysis of Variance Table
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Response: y1
+\end_layout
+
+\begin_layout Plain Layout
+
+           Df  Sum Sq Mean Sq F value    Pr(>F)    
+\end_layout
+
+\begin_layout Plain Layout
+
+x1          1  142.19 142.194  11.444 0.0009738 ***
+\end_layout
+
+\begin_layout Plain Layout
+
+Residuals 118 1466.17  12.425                      
+\end_layout
+
+\begin_layout Plain Layout
+
+---
+\end_layout
+
+\begin_layout Plain Layout
+
+Signif.
+ codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 \end_layout
 
 \end_inset
@@ -304,6 +344,15 @@ status open
 
 \begin_layout Paragraph
 Hypothesis and Interpretation:
+\end_layout
+
+\begin_layout Standard
+The null hypothesis is that 
+\begin_inset Formula $\beta_{0}=\beta_{1}=0$
+\end_inset
+
+.
+ Since the p-values is less than 0.05, we reject the null hypothesis.
 \end_layout
 
 \begin_layout Subsection
@@ -317,7 +366,95 @@ status open
 
 \begin_layout Plain Layout
 
-# summary(reg)
+> summary(reg)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Call:
+\end_layout
+
+\begin_layout Plain Layout
+
+lm(formula = y ~ x)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Residuals:
+\end_layout
+
+\begin_layout Plain Layout
+
+    Min      1Q  Median      3Q     Max 
+\end_layout
+
+\begin_layout Plain Layout
+
+-6.3535 -1.3154  0.0036  1.2405  4.2469 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Coefficients:
+\end_layout
+
+\begin_layout Plain Layout
+
+            Estimate Std.
+ Error t value Pr(>|t|)    
+\end_layout
+
+\begin_layout Plain Layout
+
+(Intercept)  6.86349    0.39863   17.22   <2e-16 ***
+\end_layout
+
+\begin_layout Plain Layout
+
+x            0.53327    0.03028   17.61   <2e-16 ***
+\end_layout
+
+\begin_layout Plain Layout
+
+---=
+\end_layout
+
+\begin_layout Plain Layout
+
+Signif.
+ codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Residual standard error: 2.118 on 109 degrees of freedom
+\end_layout
+
+\begin_layout Plain Layout
+
+Multiple R-squared:   0.74,	Adjusted R-squared:  0.7376 
+\end_layout
+
+\begin_layout Plain Layout
+
+F-statistic: 310.2 on 1 and 109 DF,  p-value: < 2.2e-16
 \end_layout
 
 \end_inset
@@ -327,6 +464,24 @@ status open
 
 \begin_layout Paragraph
 Hypotheses and Interpretation:
+\end_layout
+
+\begin_layout Itemize
+The null hypothesis for the intercept test is that 
+\begin_inset Formula $\beta_{0}=0$
+\end_inset
+
+.
+ Since the p-value is less than 0.05 we reject the null hypothesis.
+\end_layout
+
+\begin_layout Itemize
+The null hypothesis for the 'x' test is that 
+\begin_inset Formula $\beta_{1}=0$
+\end_inset
+
+.
+ Since the p-value is less than 0.05 we reject the null hypothesis.
 \end_layout
 
 \begin_layout Subsection
@@ -345,11 +500,13 @@ Interpretation of
 \begin_inset Formula $b_{0}$
 \end_inset
 
- represents: 
+ represents the square of the GPA when the ACT score is 0.
+ 
 \begin_inset Formula $b_{1}$
 \end_inset
 
- represents:
+ represents the increase in the square of the GPA for every increase of
+ 1 in the ACT score.
 \end_layout
 
 \begin_layout Subsection
@@ -363,7 +520,22 @@ status open
 
 \begin_layout Plain Layout
 
-# confidence intervals
+> confint(reg1)
+\end_layout
+
+\begin_layout Plain Layout
+
+                2.5 %    97.5 %
+\end_layout
+
+\begin_layout Plain Layout
+
+(Intercept) 0.2231933 7.4126115
+\end_layout
+
+\begin_layout Plain Layout
+
+x1          0.1013473 0.3875176
 \end_layout
 
 \end_inset
@@ -414,7 +586,7 @@ Interval
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+(0.2232,7.4126)
 \end_layout
 
 \end_inset
@@ -437,7 +609,7 @@ Interval
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+(0.1013, 0.3875)
 \end_layout
 
 \end_inset
@@ -1798,6 +1970,16 @@ Plots
 wide false
 sideways false
 status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 3-scatter-1
+
+\end_inset
+
+
+\end_layout
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard

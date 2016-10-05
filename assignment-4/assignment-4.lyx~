@@ -500,11 +500,13 @@ Interpretation of
 \begin_inset Formula $b_{0}$
 \end_inset
 
- represents: 
+ represents the square of the GPA when the ACT score is 0.
+ 
 \begin_inset Formula $b_{1}$
 \end_inset
 
- represents:
+ represents the increase in the square of the GPA for every increase of
+ 1 in the ACT score.
 \end_layout
 
 \begin_layout Subsection
@@ -584,7 +586,7 @@ Interval
 \begin_inset Text
 
 \begin_layout Plain Layout
-(0.2232, 7.4126)
+(0.2232,7.4126)
 \end_layout
 
 \end_inset
