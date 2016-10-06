@@ -32,3 +32,8 @@ dev.off()
 
 anova(reg1)
 
+## x2: age of the copiers
+lm(y~x2)
+anv <- anova(lm(y~x2))
+
+
