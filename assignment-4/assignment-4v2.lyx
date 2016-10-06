@@ -27,7 +27,7 @@
 \output_sync 0
 \bibtex_command default
 \index_command default
-\float_placement h
+\float_placement H
 \paperfontsize default
 \spacing single
 \use_hyperref false
@@ -1438,6 +1438,12 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 2-scatter-2.png
+
+\end_inset
+
 
 \end_layout
 
@@ -1459,29 +1465,6 @@ Scatter Plot
 \end_layout
 
 \begin_layout Subsection
-Levene's Test
-\end_layout
-
-\begin_layout Standard
-\begin_inset listings
-inline false
-status open
-
-\begin_layout Plain Layout
-
-# Levene's Test
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Paragraph
-Interpretation:
-\end_layout
-
-\begin_layout Subsection
 ANOVA Table
 \end_layout
 
@@ -1492,7 +1475,91 @@ status open
 
 \begin_layout Plain Layout
 
-# ANOVA Table
+> anova(lm(y~x2))
+\end_layout
+
+\begin_layout Plain Layout
+
+Analysis of Variance Table
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Response: y
+\end_layout
+
+\begin_layout Plain Layout
+
+          Df Sum Sq Mean Sq F value Pr(>F)
+\end_layout
+
+\begin_layout Plain Layout
+
+x2         1   3986  3986.5   2.244 0.1414
+\end_layout
+
+\begin_layout Plain Layout
+
+Residuals 43  76390  1776.5
+\end_layout
+
+\begin_layout Plain Layout
+
+## Try transformation y=y^2
+\end_layout
+
+\begin_layout Plain Layout
+
+## Also tried transformations for x (sqrt(x), x^2, log(x, 10))	
+\end_layout
+
+\begin_layout Plain Layout
+
+> anova(lm(sqrt(y)~x2))
+\end_layout
+
+\begin_layout Plain Layout
+
+Analysis of Variance Table
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Response: sqrt(y)
+\end_layout
+
+\begin_layout Plain Layout
+
+          Df Sum Sq Mean Sq F value  Pr(>F)  
+\end_layout
+
+\begin_layout Plain Layout
+
+x2         1  21.99 21.9867  2.9337 0.09395 .
+\end_layout
+
+\begin_layout Plain Layout
+
+Residuals 43 322.26  7.4945                  
+\end_layout
+
+\begin_layout Plain Layout
+
+---
+\end_layout
+
+\begin_layout Plain Layout
+
+Signif.
+ codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 \end_layout
 
 \end_inset
@@ -1504,148 +1571,8 @@ status open
 Hypothesis and Interpretation:
 \end_layout
 
-\begin_layout Subsection
-Regression Table
-\end_layout
-
 \begin_layout Standard
-\begin_inset listings
-inline false
-status open
-
-\begin_layout Plain Layout
-
-# summary(reg)
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Paragraph
-Hypotheses and Interpretation:
-\end_layout
-
-\begin_layout Subsection
-Interpretation of 
-\begin_inset Formula $b_{0}$
-\end_inset
-
- and 
-\begin_inset Formula $b{}_{1}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula $b_{0}$
-\end_inset
-
- represents: 
-\begin_inset Formula $b_{1}$
-\end_inset
-
- represents:
-\end_layout
-
-\begin_layout Subsection
-Confidence Intervals
-\end_layout
-
-\begin_layout Standard
-\begin_inset listings
-inline false
-status open
-
-\begin_layout Plain Layout
-
-# confidence intervals
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Tabular
-<lyxtabular version="3" rows="3" columns="2">
-<features rotate="0" tabularvalignment="middle">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Value
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Interval
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $\beta_{0}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $\beta_{1}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
+TODO
 \end_layout
 
 \begin_layout Section
@@ -1663,6 +1590,16 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 2-scatter-3.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -1672,71 +1609,6 @@ Scatter Plot
 \end_inset
 
 
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Residuals Plot
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Q-Q Plot
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-Levene's Test
-\end_layout
-
-\begin_layout Standard
-\begin_inset listings
-inline false
-status open
-
-\begin_layout Plain Layout
-
-# Levene's Test
 \end_layout
 
 \end_inset
@@ -1759,7 +1631,36 @@ status open
 
 \begin_layout Plain Layout
 
-# ANOVA Table
+> anova(lm(y~x3))
+\end_layout
+
+\begin_layout Plain Layout
+
+Analysis of Variance Table
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Response: y
+\end_layout
+
+\begin_layout Plain Layout
+
+          Df Sum Sq Mean Sq F value Pr(>F)
+\end_layout
+
+\begin_layout Plain Layout
+
+x3         1   1104  1103.9  0.5988 0.4433
+\end_layout
+
+\begin_layout Plain Layout
+
+Residuals 43  79273  1843.6  
 \end_layout
 
 \end_inset
@@ -1771,148 +1672,8 @@ status open
 Hypothesis and Interpretation:
 \end_layout
 
-\begin_layout Subsection
-Regression Table
-\end_layout
-
 \begin_layout Standard
-\begin_inset listings
-inline false
-status open
-
-\begin_layout Plain Layout
-
-# summary(reg)
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Paragraph
-Hypotheses and Interpretation:
-\end_layout
-
-\begin_layout Subsection
-Interpretation of 
-\begin_inset Formula $b_{0}$
-\end_inset
-
- and 
-\begin_inset Formula $b{}_{1}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula $b_{0}$
-\end_inset
-
- represents: 
-\begin_inset Formula $b_{1}$
-\end_inset
-
- represents:
-\end_layout
-
-\begin_layout Subsection
-Confidence Intervals
-\end_layout
-
-\begin_layout Standard
-\begin_inset listings
-inline false
-status open
-
-\begin_layout Plain Layout
-
-# confidence intervals
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Tabular
-<lyxtabular version="3" rows="3" columns="2">
-<features rotate="0" tabularvalignment="middle">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Value
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Interval
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $\beta_{0}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $\beta_{1}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
+TODO
 \end_layout
 
 \begin_layout Section
@@ -1931,8 +1692,15 @@ status open
 
 \begin_layout Plain Layout
 \align center
-\begin_inset Graphics
-	filename 3-scatter-1.png
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[width=3.0in]{3-scatter-1}
+\end_layout
 
 \end_inset
 

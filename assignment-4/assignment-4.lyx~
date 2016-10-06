@@ -95,6 +95,7 @@ Plots
 
 \begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
@@ -331,12 +332,6 @@ Residuals 118 1466.17  12.425
 ---
 \end_layout
 
-\begin_layout Plain Layout
-
-Signif.
- codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-\end_layout
-
 \end_inset
 
 
@@ -430,12 +425,6 @@ x            0.53327    0.03028   17.61   <2e-16 ***
 \begin_layout Plain Layout
 
 ---=
-\end_layout
-
-\begin_layout Plain Layout
-
-Signif.
- codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 \end_layout
 
 \begin_layout Plain Layout
@@ -1171,6 +1160,23 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[width=3.0in]{2-scatter-1}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -1192,6 +1198,23 @@ Scatter Plot
 wide false
 sideways false
 status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[width=3.0in]{2-resid-1}
+\end_layout
+
+\end_inset
+
+
+\end_layout
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -1217,6 +1240,23 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[width=3.0in]{2-qq-1}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -1234,7 +1274,7 @@ Q-Q Plot
 \end_layout
 
 \begin_layout Subsection
-Levene's Test
+Breusch-Pagan Test
 \end_layout
 
 \begin_layout Standard
@@ -1244,7 +1284,30 @@ status open
 
 \begin_layout Plain Layout
 
-# Levene's Test
+> bptest(reg1)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	studentized Breusch-Pagan test
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+data:  reg1
+\end_layout
+
+\begin_layout Plain Layout
+
+BP = 1.4187, df = 1, p-value = 0.2336
 \end_layout
 
 \end_inset
@@ -1254,6 +1317,11 @@ status open
 
 \begin_layout Paragraph
 Interpretation:
+\end_layout
+
+\begin_layout Standard
+The p-value is greater than 0.05, so we fail to reject the null hypothesis
+ that the error variances are constant.
 \end_layout
 
 \begin_layout Subsection
@@ -1267,7 +1335,41 @@ status open
 
 \begin_layout Plain Layout
 
-# ANOVA Table
+> anova(reg1)
+\end_layout
+
+\begin_layout Plain Layout
+
+Analysis of Variance Table
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Response: y
+\end_layout
+
+\begin_layout Plain Layout
+
+          Df Sum Sq Mean Sq F value    Pr(>F)    
+\end_layout
+
+\begin_layout Plain Layout
+
+x1         1  76960   76960  968.66 < 2.2e-16 ***
+\end_layout
+
+\begin_layout Plain Layout
+
+Residuals 43   3416      79                      
+\end_layout
+
+\begin_layout Plain Layout
+
+---
 \end_layout
 
 \end_inset
@@ -1277,6 +1379,11 @@ status open
 
 \begin_layout Paragraph
 Hypothesis and Interpretation:
+\end_layout
+
+\begin_layout Standard
+The p-value is less than 0.05, so we reject the null hypothesis that the
+ betas are zero.
 \end_layout
 
 \begin_layout Subsection
@@ -1290,7 +1397,89 @@ status open
 
 \begin_layout Plain Layout
 
-# summary(reg)
+> summary(reg1)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Call:
+\end_layout
+
+\begin_layout Plain Layout
+
+lm(formula = y ~ x1)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Residuals:
+\end_layout
+
+\begin_layout Plain Layout
+
+     Min       1Q   Median       3Q      Max 
+\end_layout
+
+\begin_layout Plain Layout
+
+-22.7723  -3.7371   0.3334   6.3334  15.4039 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Coefficients:
+\end_layout
+
+\begin_layout Plain Layout
+
+            Estimate Std.
+ Error t value Pr(>|t|)    
+\end_layout
+
+\begin_layout Plain Layout
+
+(Intercept)  -0.5802     2.8039  -0.207    0.837    
+\end_layout
+
+\begin_layout Plain Layout
+
+x1           15.0352     0.4831  31.123   <2e-16 ***
+\end_layout
+
+\begin_layout Plain Layout
+
+---
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Residual standard error: 8.914 on 43 degrees of freedom
+\end_layout
+
+\begin_layout Plain Layout
+
+Multiple R-squared:  0.9575,	Adjusted R-squared:  0.9565 
+\end_layout
+
+\begin_layout Plain Layout
+
+F-statistic: 968.7 on 1 and 43 DF,  p-value: < 2.2e-16
 \end_layout
 
 \end_inset
@@ -1336,7 +1525,7 @@ status open
 
 \begin_layout Plain Layout
 
-# confidence intervals
+confint(reg1)
 \end_layout
 
 \end_inset
@@ -1387,7 +1576,7 @@ Interval
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+(-6.234, 5.075)
 \end_layout
 
 \end_inset
@@ -1410,7 +1599,7 @@ Interval
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+(14.061, 16.009)
 \end_layout
 
 \end_inset
@@ -1433,14 +1622,22 @@ Plots
 
 \begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
 \align center
-\begin_inset Graphics
-	filename 2-scatter-2.png
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[width=3.0in]{2-scatter-2}
+\end_layout
 
 \end_inset
 
@@ -1504,7 +1701,51 @@ x2         1   3986  3986.5   2.244 0.1414
 
 \begin_layout Plain Layout
 
-Residuals 43  76390  1776.5  
+Residuals 43  76390  1776.5
+\end_layout
+
+\begin_layout Plain Layout
+
+## Try transformation y=y^2
+\end_layout
+
+\begin_layout Plain Layout
+
+## Also tried transformations for x (sqrt(x), x^2, log(x, 10))	
+\end_layout
+
+\begin_layout Plain Layout
+
+> anova(lm(sqrt(y)~x2))
+\end_layout
+
+\begin_layout Plain Layout
+
+Analysis of Variance Table
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Response: sqrt(y)
+\end_layout
+
+\begin_layout Plain Layout
+
+          Df Sum Sq Mean Sq F value  Pr(>F)  
+\end_layout
+
+\begin_layout Plain Layout
+
+x2         1  21.99 21.9867  2.9337 0.09395 .
+\end_layout
+
+\begin_layout Plain Layout
+
+Residuals 43 322.26  7.4945                  
 \end_layout
 
 \end_inset
@@ -1530,14 +1771,22 @@ Plots
 
 \begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
 \align center
-\begin_inset Graphics
-	filename 2-scatter-3.png
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[width=3.0in]{2-scatter-3}
+\end_layout
 
 \end_inset
 
@@ -1631,14 +1880,22 @@ Plots
 
 \begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
 \align center
-\begin_inset Graphics
-	filename 3-scatter-1.png
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[width=3.0in]{3-scatter-1}
+\end_layout
 
 \end_inset
 
