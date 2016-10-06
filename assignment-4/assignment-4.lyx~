@@ -5,6 +5,7 @@
 \textclass article
 \begin_preamble
 \usepackage{enumerate}
+\usepackage{graphicx}
 \end_preamble
 \use_default_options true
 \maintain_unincluded_children false
@@ -1024,6 +1025,24 @@ status open
 Hypotheses and Interpretation:
 \end_layout
 
+\begin_layout Itemize
+The null hypothesis for the intercept test is that 
+\begin_inset Formula $\beta_{0}=0$
+\end_inset
+
+.
+ Since the p-value is less than 0.05 we reject the null hypothesis.
+\end_layout
+
+\begin_layout Itemize
+The null hypothesis for the 'x' test is that 
+\begin_inset Formula $\beta_{1}=0$
+\end_inset
+
+.
+ Since the p-value is less than 0.05 we reject the null hypothesis.
+\end_layout
+
 \begin_layout Subsection
 Interpretation of 
 \begin_inset Formula $b_{0}$
@@ -1491,6 +1510,25 @@ F-statistic: 968.7 on 1 and 43 DF,  p-value: < 2.2e-16
 Hypotheses and Interpretation:
 \end_layout
 
+\begin_layout Itemize
+The null hypothesis for the intercept test is that 
+\begin_inset Formula $\beta_{0}=0$
+\end_inset
+
+.
+ Since the p-value is greater than 0.05 we do not reject the null hypothesis;
+ we believe that the intercept is not a significant value.
+\end_layout
+
+\begin_layout Itemize
+The null hypothesis for the 'x' test is that 
+\begin_inset Formula $\beta_{1}=0$
+\end_inset
+
+.
+ Since the p-value is less than 0.05 we reject the null hypothesis.
+\end_layout
+
 \begin_layout Subsection
 Interpretation of 
 \begin_inset Formula $b_{0}$
@@ -1507,11 +1545,14 @@ Interpretation of
 \begin_inset Formula $b_{0}$
 \end_inset
 
- represents: 
+ represents the amount of minutes spent servicing when there are 0 copiers
+ to service (hence not surprising that the estimate of -0.58 is insignificant).
+ 
 \begin_inset Formula $b_{1}$
 \end_inset
 
- represents:
+ represents the average increase in service time for each additional copier
+ serviced.
 \end_layout
 
 \begin_layout Subsection
@@ -1661,6 +1702,219 @@ Scatter Plot
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[width=3.0in]{2-scatter-2-transform}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Scatter Plot for 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$y=log_{10}y$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[width=3.0in]{2-resid-2-transform}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Residuals Plot for 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$y=log_{10}y$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[width=3.0in]{2-qq-2-transform}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+QQ Plot for 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$y=log_{10}y$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Breusch-Pagan Test
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+> bptest(reg2)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	studentized Breusch-Pagan test
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+data:  reg2
+\end_layout
+
+\begin_layout Plain Layout
+
+BP = 2.2309, df = 1, p-value = 0.1353
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Interpretation:
+\end_layout
+
+\begin_layout Standard
+The p-value is greater than 0.05, so we fail to reject the null hypothesis
+ that the error variances are constant.
+\end_layout
+
 \begin_layout Subsection
 ANOVA Table
 \end_layout
@@ -1701,27 +1955,7 @@ x2         1   3986  3986.5   2.244 0.1414
 
 \begin_layout Plain Layout
 
-Residuals 43  76390  1776.5
-\end_layout
-
-\begin_layout Plain Layout
-
-## Try transformation y=y^2
-\end_layout
-
-\begin_layout Plain Layout
-
-## Also tried transformations for x (sqrt(x), x^2, log(x, 10))	
-\end_layout
-
-\begin_layout Plain Layout
-
-> anova(lm(sqrt(y)~x2))
-\end_layout
-
-\begin_layout Plain Layout
-
-Analysis of Variance Table
+Residuals 43  76390  1776.5  
 \end_layout
 
 \begin_layout Plain Layout
@@ -1730,22 +1964,185 @@ Analysis of Variance Table
 
 \begin_layout Plain Layout
 
-Response: sqrt(y)
+## ANOVA p-values for various transformations (see appendix)
 \end_layout
 
 \begin_layout Plain Layout
 
-          Df Sum Sq Mean Sq F value  Pr(>F)  
+> transform(y,x2)
 \end_layout
 
 \begin_layout Plain Layout
 
-x2         1  21.99 21.9867  2.9337 0.09395 .
+[1] "Running transformations for y, x"
 \end_layout
 
 \begin_layout Plain Layout
 
-Residuals 43 322.26  7.4945                  
+       name          p
+\end_layout
+
+\begin_layout Plain Layout
+
+1       x^2 0.12025590
+\end_layout
+
+\begin_layout Plain Layout
+
+2   sqrt(x) 0.17108218
+\end_layout
+
+\begin_layout Plain Layout
+
+3       1/x 0.45074099
+\end_layout
+
+\begin_layout Plain Layout
+
+4 log(x,10) 0.22416214
+\end_layout
+
+\begin_layout Plain Layout
+
+5       y^2 0.31292534
+\end_layout
+
+\begin_layout Plain Layout
+
+6   sqrt(y) 0.09395011
+\end_layout
+
+\begin_layout Plain Layout
+
+7       1/y 0.24356906
+\end_layout
+
+\begin_layout Plain Layout
+
+8 log(y,10) 0.08493302
+\end_layout
+
+\begin_layout Plain Layout
+
+            
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Attempted transformations and resulting ANOVA p-values are below (see end
+ of document for function used)
+\end_layout
+
+\begin_layout Paragraph
+Hypothesis and Interpretation:
+\end_layout
+
+\begin_layout Standard
+The null hypothesis is that no regression can be made.
+ None of the p-values meet the standard of 0.05 to reject this hypothesis,
+ but the transformation to log(y,10) is low enough that we will consider
+ a regression.
+\end_layout
+
+\begin_layout Subsection
+Regression Table
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+> summary(reg2)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Call:
+\end_layout
+
+\begin_layout Plain Layout
+
+lm(formula = y1 ~ x2)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Residuals:
+\end_layout
+
+\begin_layout Plain Layout
+
+     Min       1Q   Median       3Q      Max 
+\end_layout
+
+\begin_layout Plain Layout
+
+-1.23073 -0.14528  0.07519  0.22205  0.59381 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Coefficients:
+\end_layout
+
+\begin_layout Plain Layout
+
+            Estimate Std.
+ Error t value Pr(>|t|)    
+\end_layout
+
+\begin_layout Plain Layout
+
+(Intercept)  1.36160    0.23726   5.739 8.75e-07 ***
+\end_layout
+
+\begin_layout Plain Layout
+
+x2           0.01649    0.00935   1.763   0.0849 .
+  
+\end_layout
+
+\begin_layout Plain Layout
+
+---
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Residual standard error: 0.3791 on 43 degrees of freedom
+\end_layout
+
+\begin_layout Plain Layout
+
+Multiple R-squared:  0.06744,	Adjusted R-squared:  0.04575 
+\end_layout
+
+\begin_layout Plain Layout
+
+F-statistic:  3.11 on 1 and 43 DF,  p-value: 0.08493
 \end_layout
 
 \end_inset
@@ -1754,11 +2151,162 @@ Residuals 43 322.26  7.4945
 \end_layout
 
 \begin_layout Paragraph
-Hypothesis and Interpretation:
+Hypotheses and Interpretation:
+\end_layout
+
+\begin_layout Itemize
+The null hypothesis for the intercept test is that 
+\begin_inset Formula $\beta_{0}=0$
+\end_inset
+
+.
+ Since the p-value is less than 0.05 we reject the null hypothesis.
+\end_layout
+
+\begin_layout Itemize
+The null hypothesis for the 'x' test is that 
+\begin_inset Formula $\beta_{1}=0$
+\end_inset
+
+.
+ Since the p-value is greater than 0.05 we accept the null hypothesis.
+\end_layout
+
+\begin_layout Itemize
+The low 
+
+\begin_inset Formula $R^{2}$
+\end_inset
+
+ and acceptance of the null hypothesis 
+\begin_inset Formula $\beta_{1}=0$
+\end_inset
+
+ mean this regression is not useful.
+\end_layout
+
+\begin_layout Subsection
+Interpretation of 
+\begin_inset Formula $b_{0}$
+\end_inset
+
+ and 
+\begin_inset Formula $b{}_{1}$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-TODO
+\begin_inset Formula $b_{0}$
+\end_inset
+
+ represents the amount of minutes spent servicing when the mean age of copiers
+ serviced is 0.
+ 
+\begin_inset Formula $b_{1}$
+\end_inset
+
+ represents the average increase in service time for each 1 year increase
+ in the mean age.
+\end_layout
+
+\begin_layout Subsection
+Confidence Intervals
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+confint(reg2)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="2">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Value
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Interval
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\beta_{0}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+(0.88, 1.84)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\beta_{1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+(-0.002, 0.04)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -2032,6 +2580,24 @@ status open
 
 \begin_layout Paragraph
 Hypotheses and Interpretation:
+\end_layout
+
+\begin_layout Itemize
+The null hypothesis for the intercept test is that 
+\begin_inset Formula $\beta_{0}=0$
+\end_inset
+
+.
+ Since the p-value is less than 0.05 we reject the null hypothesis.
+\end_layout
+
+\begin_layout Itemize
+The null hypothesis for the 'x' test is that 
+\begin_inset Formula $\beta_{1}=0$
+\end_inset
+
+.
+ Since the p-value is less than 0.05 we reject the null hypothesis.
 \end_layout
 
 \begin_layout Subsection

@@ -1702,6 +1702,168 @@ Scatter Plot
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[width=3.0in]{2-scatter-2-transform}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Scatter Plot for 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$y=log_{10}y$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[width=3.0in]{2-resid-2-transform}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Residuals Plot for 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$y=log_{10}y$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[width=3.0in]{2-qq-2-
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+QQ Plot for 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$y=log_{10}y$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 ANOVA Table
 \end_layout
@@ -1742,27 +1904,7 @@ x2         1   3986  3986.5   2.244 0.1414
 
 \begin_layout Plain Layout
 
-Residuals 43  76390  1776.5
-\end_layout
-
-\begin_layout Plain Layout
-
-## Try transformation sqrt(y)
-\end_layout
-
-\begin_layout Plain Layout
-
-## Also tried transformations for x (sqrt(x), x^2, log(x, 10))	
-\end_layout
-
-\begin_layout Plain Layout
-
-> anova(lm(sqrt(y)~x2))
-\end_layout
-
-\begin_layout Plain Layout
-
-Analysis of Variance Table
+Residuals 43  76390  1776.5  
 \end_layout
 
 \begin_layout Plain Layout
@@ -1771,22 +1913,67 @@ Analysis of Variance Table
 
 \begin_layout Plain Layout
 
-Response: sqrt(y)
+## ANOVA p-values for various transformations (see appendix)
 \end_layout
 
 \begin_layout Plain Layout
 
-          Df Sum Sq Mean Sq F value  Pr(>F)  
+> transform(y,x2)
 \end_layout
 
 \begin_layout Plain Layout
 
-x2         1  21.99 21.9867  2.9337 0.09395 .
+[1] "Running transformations for y, x"
 \end_layout
 
 \begin_layout Plain Layout
 
-Residuals 43 322.26  7.4945                  
+       name          p
+\end_layout
+
+\begin_layout Plain Layout
+
+1       x^2 0.12025590
+\end_layout
+
+\begin_layout Plain Layout
+
+2   sqrt(x) 0.17108218
+\end_layout
+
+\begin_layout Plain Layout
+
+3       1/x 0.45074099
+\end_layout
+
+\begin_layout Plain Layout
+
+4 log(x,10) 0.22416214
+\end_layout
+
+\begin_layout Plain Layout
+
+5       y^2 0.31292534
+\end_layout
+
+\begin_layout Plain Layout
+
+6   sqrt(y) 0.09395011
+\end_layout
+
+\begin_layout Plain Layout
+
+7       1/y 0.24356906
+\end_layout
+
+\begin_layout Plain Layout
+
+8 log(y,10) 0.08493302
+\end_layout
+
+\begin_layout Plain Layout
+
+            
 \end_layout
 
 \end_inset
@@ -1795,11 +1982,8 @@ Residuals 43 322.26  7.4945
 \end_layout
 
 \begin_layout Standard
-Other attempts and resulting p-values are below:
-\end_layout
-
-\begin_layout Standard
-
+Attempted transformations and resulting ANOVA p-values are below (see end
+ of document for function used)
 \end_layout
 
 \begin_layout Paragraph
@@ -1807,7 +1991,10 @@ Hypothesis and Interpretation:
 \end_layout
 
 \begin_layout Standard
-TODO
+The null hypothesis is that no regression can be made.
+ None of the p-values meet the standard of 0.05 to reject this hypothesis,
+ but the transformation to log(y,10) is low enough that we will consider
+ a regression.
 \end_layout
 
 \begin_layout Section

@@ -33,7 +33,34 @@ dev.off()
 anova(reg1)
 
 ## x2: age of the copiers
-lm(y~x2)
-anv <- anova(lm(y~x2))
+
+anova(lm(y~x2)) ## p-value fails
+
+transform(y,x2) ## file transform.R; y=log(y,10) succeeds
+
+y1 <- log(y, 10)
+
+reg2 <- lm(y1~x2)
+
+png("2-scatter-2-transform.png")
+plot(x2,y1)
+abline(reg2)
+dev.off()
+
+e <- residuals(reg2)
+
+png("2-resid-2-transform.png")
+plot(x2,e)
+dev.off()
+
+png("2-qq-2-transform.png")
+qqnorm(e)
+qqline(e)
+dev.off()
+
+
+bptest(reg2)
+
+
 
 
