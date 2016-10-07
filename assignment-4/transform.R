@@ -17,7 +17,6 @@ transform <- function(y,x) {
     p[7] <- anvp(1/y,x)
     p[8] <- anvp(log(y,10),x)
      
-
     result <- data.frame(name, p, stringsAsFactors=F)
     return(result)
 }

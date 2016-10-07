@@ -86,6 +86,10 @@ Group Assignment 4
 Joe Opseth, Jeff Bergh, Tyson Tellers
 \end_layout
 
+\begin_layout Part
+GPA Problem
+\end_layout
+
 \begin_layout Section
 GPA ~ ACT
 \end_layout
@@ -1162,6 +1166,10 @@ Interval
 \end_inset
 
 
+\end_layout
+
+\begin_layout Part
+Copier Problem
 \end_layout
 
 \begin_layout Section
@@ -2415,7 +2423,14 @@ Hypothesis and Interpretation:
 \end_layout
 
 \begin_layout Standard
-TODO
+The null hypothesis is that the regression does not exist.
+ Since the p-value is so high, we wholeheartedly accept the null hypothesis.
+ The interpretation of this is that there is no correlation between the
+ experience of the service member and the minutes spent servicing the copiers.
+\end_layout
+
+\begin_layout Part
+Lot Production Problem
 \end_layout
 
 \begin_layout Section
@@ -2474,6 +2489,23 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[width=3.0in]{3-resid-1}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -2497,6 +2529,23 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[width=3.0in]{3-qq-1}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -2514,7 +2563,7 @@ Q-Q Plot
 \end_layout
 
 \begin_layout Subsection
-Levene's Test
+Breusch-Pagan Test
 \end_layout
 
 \begin_layout Standard
@@ -2524,7 +2573,30 @@ status open
 
 \begin_layout Plain Layout
 
-# Levene's Test
+> bptest(reg)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	studentized Breusch-Pagan test
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+data:  reg
+\end_layout
+
+\begin_layout Plain Layout
+
+BP = 0.20109, df = 1, p-value = 0.6538
 \end_layout
 
 \end_inset
@@ -2534,6 +2606,11 @@ status open
 
 \begin_layout Paragraph
 Interpretation:
+\end_layout
+
+\begin_layout Standard
+The p-value is greater than 0.05, so we accept the null hypothesis that the
+ error variances are constant.
 \end_layout
 
 \begin_layout Subsection
@@ -2547,7 +2624,41 @@ status open
 
 \begin_layout Plain Layout
 
-# ANOVA Table
+> anova(reg)
+\end_layout
+
+\begin_layout Plain Layout
+
+Analysis of Variance Table
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Response: y
+\end_layout
+
+\begin_layout Plain Layout
+
+           Df  Sum Sq Mean Sq F value    Pr(>F)    
+\end_layout
+
+\begin_layout Plain Layout
+
+x           1 1391.16 1391.16   310.2 < 2.2e-16 ***
+\end_layout
+
+\begin_layout Plain Layout
+
+Residuals 109  488.84    4.48                      
+\end_layout
+
+\begin_layout Plain Layout
+
+---
 \end_layout
 
 \end_inset
@@ -2557,6 +2668,12 @@ status open
 
 \begin_layout Paragraph
 Hypothesis and Interpretation:
+\end_layout
+
+\begin_layout Standard
+The null hypothesis is that there is no correlation between lot size and
+ production time.
+ The p-value is below 0.05 so we reject the null hypothesis.
 \end_layout
 
 \begin_layout Subsection
@@ -2570,7 +2687,89 @@ status open
 
 \begin_layout Plain Layout
 
-# summary(reg)
+> summary(reg)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Call:
+\end_layout
+
+\begin_layout Plain Layout
+
+lm(formula = y ~ x)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Residuals:
+\end_layout
+
+\begin_layout Plain Layout
+
+    Min      1Q  Median      3Q     Max 
+\end_layout
+
+\begin_layout Plain Layout
+
+-6.3535 -1.3154  0.0036  1.2405  4.2469 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Coefficients:
+\end_layout
+
+\begin_layout Plain Layout
+
+            Estimate Std.
+ Error t value Pr(>|t|)    
+\end_layout
+
+\begin_layout Plain Layout
+
+(Intercept)  6.86349    0.39863   17.22   <2e-16 ***
+\end_layout
+
+\begin_layout Plain Layout
+
+x            0.53327    0.03028   17.61   <2e-16 ***
+\end_layout
+
+\begin_layout Plain Layout
+
+---
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Residual standard error: 2.118 on 109 degrees of freedom
+\end_layout
+
+\begin_layout Plain Layout
+
+Multiple R-squared:   0.74,	Adjusted R-squared:  0.7376 
+\end_layout
+
+\begin_layout Plain Layout
+
+F-statistic: 310.2 on 1 and 109 DF,  p-value: < 2.2e-16
 \end_layout
 
 \end_inset
@@ -2616,11 +2815,14 @@ Interpretation of
 \begin_inset Formula $b_{0}$
 \end_inset
 
- represents: 
+ can be interpreted as our estimate of overhead; hours that will be spent
+ on any project regardless of size.
+ 
 \begin_inset Formula $b_{1}$
 \end_inset
 
- represents:
+ represents our estimate of the increase in hours spent for every increase
+ of 1 unit in the lot size.
 \end_layout
 
 \begin_layout Subsection
@@ -2634,7 +2836,7 @@ status open
 
 \begin_layout Plain Layout
 
-# confidence intervals
+confint(reg)
 \end_layout
 
 \end_inset
@@ -2685,7 +2887,7 @@ Interval
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+(6.07, 7.65)
 \end_layout
 
 \end_inset
@@ -2708,13 +2910,126 @@ Interval
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+(0.47, 0.59)
 \end_layout
 
 \end_inset
 </cell>
 </row>
 </lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+Appendix
+\end_layout
+
+\begin_layout Section
+Transform Function
+\end_layout
+
+\begin_layout Standard
+This is the function used to run get ANOVA table p-values for various transforma
+tions of x and y.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+anvp <- function(y,x) {
+\end_layout
+
+\begin_layout Plain Layout
+    return(anova(lm(y~x))$Pr[1])
+\end_layout
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+transform <- function(y,x) {
+\end_layout
+
+\begin_layout Plain Layout
+    print("Running transformations for y, x")
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+    name <- c("x^2","sqrt(x)","1/x","log(x,10)","y^2","sqrt(y)","1/y","log(y,10)
+")
+\end_layout
+
+\begin_layout Plain Layout
+    p <- vector(mode="numeric", length=8)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+    p[1] <- anvp(y,x^2)
+\end_layout
+
+\begin_layout Plain Layout
+    p[2] <- anvp(y,sqrt(x))
+\end_layout
+
+\begin_layout Plain Layout
+    p[3] <- anvp(y,1/x)
+\end_layout
+
+\begin_layout Plain Layout
+    p[4] <- anvp(y,log(x,10))
+\end_layout
+
+\begin_layout Plain Layout
+    p[5] <- anvp(y^2,x)
+\end_layout
+
+\begin_layout Plain Layout
+    p[6] <- anvp(sqrt(y),x)
+\end_layout
+
+\begin_layout Plain Layout
+    p[7] <- anvp(1/y,x)
+\end_layout
+
+\begin_layout Plain Layout
+    p[8] <- anvp(log(y,10),x)
+\end_layout
+
+\begin_layout Plain Layout
+    
+\end_layout
+
+\begin_layout Plain Layout
+    result <- data.frame(name, p, stringsAsFactors=F)
+\end_layout
+
+\begin_layout Plain Layout
+    return(result)
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
 
 \end_inset
 

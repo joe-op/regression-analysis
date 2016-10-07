@@ -1,19 +1,34 @@
-library(lawstat)
+library(lmtest)
 
 production <- read.csv("production.csv")
 
 y <- production$hours
 x <- production$size
 
-plot(x,y)
-
 reg <- lm(y~x)
 
-e <- residuals(reg)
-plot(x,e)
+png("3-scatter-1.png")
+plot(x,y)
+abline(reg)
+dev.off()
 
+e <- residuals(reg)
+
+png("3-resid-1.png")
+plot(x,e)
+dev.off()
+
+png("3-qq-1.png")
 qqnorm(e)
 qqline(e)
+dev.off()
 
-levene.test(y, x, location="mean") # cannot get any transformation to work
+bptest(reg)
+
+anova(reg)
+
+summary(reg)
+
+confint(reg)
+
 
