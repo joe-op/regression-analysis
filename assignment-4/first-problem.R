@@ -1,3 +1,5 @@
+library(lmtest)
+
 gpax <- read.csv("gpax.csv", header=T)
 
 y <- gpax$gpa
@@ -25,32 +27,13 @@ abline(reg1)
 
 e <- residuals(reg1)
 plot(x1, e)
-## try levene's test
-library(lawstat)
-levene.test(y, x1, location="mean") # p-value < 0.05; reject H0
-## Assume error variance is not constant; need Y transformation
-## y squared works as a transformation
-y1 <- y^2
 
-## start over with transformed y
-plot(x1, y1)
-reg1 <- lm(y1~x1)
-e <- residuals(reg1)
-plot(x1, e)
+## Breusch-Pagan test
 
-qqnorm(e)
-qqline(e)
-## tests look good
+bptest(reg1)
 
-## levene's test
-levene.test(y1, x1, location="mean") # p-value > 0.05; good
 
-anova(reg1) # p-value < 0.05; good
-## reject H0 (that b0=b1=0)
 
-summary(reg1)
-
-## explain, confidence interval
 
 
 then move on to x2 & x3
@@ -58,40 +41,31 @@ then move on to x2 & x3
 ### test regression with intelligence score
 ## x2 is gpax$int
 
-plot(x2, y) # looks good
 reg2 <- lm(y~x2)
 
+anova(reg2)
+summary(reg2)
+
+png("1-scatter-2.png")
+plot(x2,y)
+abline(reg2)
+dev.off()
+
 e <- residuals(reg2)
+
+png("1-resid-2.png")
 plot(x2, e)
-levene.test(y, x2, location="mean")
-## cannot make any transformation work
+dev.off()
 
-
+png("1-qq-2.png")
 qqnorm(e)
 qqline(e)
+dev.off()
 
-## TODO rest of the tests
+## class rank
+reg3 <- lm(y~x3)
 
-### test regression with rank
-## x3 is gpax$rank
-
-plot(x3, y)
-## looks concentrated
-## try transformation x = x^2
-plot(x3^2, y) ## better
-
-reg3 <- lm(y~x3^2)
+anova(reg3)
+summary(reg3)
 
 e <- residuals(reg3)
-plot(x3^2, e) ## residuals look good
-
-## cannot get transformation to work
-## sqrt(y) is a little better but not much
-levene.test(y, x3^2, location="mean")
-
-qqnorm(e)
-qqline(e) ## left-skewed
-
-## TODO try transformation to improve qq plot
-
-

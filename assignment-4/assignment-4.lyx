@@ -832,7 +832,41 @@ status open
 
 \begin_layout Plain Layout
 
-# ANOVA Table
+> anova(reg2)
+\end_layout
+
+\begin_layout Plain Layout
+
+Analysis of Variance Table
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Response: y
+\end_layout
+
+\begin_layout Plain Layout
+
+           Df Sum Sq Mean Sq F value    Pr(>F)    
+\end_layout
+
+\begin_layout Plain Layout
+
+x2          1 31.470  31.470  207.04 < 2.2e-16 ***
+\end_layout
+
+\begin_layout Plain Layout
+
+Residuals 118 17.936   0.152                      
+\end_layout
+
+\begin_layout Plain Layout
+
+---
 \end_layout
 
 \end_inset
@@ -842,6 +876,15 @@ status open
 
 \begin_layout Paragraph
 Hypothesis and Interpretation:
+\end_layout
+
+\begin_layout Standard
+The null hypothesis is that 
+\begin_inset Formula $\beta_{0}=\beta_{1}=0$
+\end_inset
+
+.
+ Since the p-values is less than 0.05, we reject the null hypothesis.
 \end_layout
 
 \begin_layout Subsection
@@ -855,7 +898,89 @@ status open
 
 \begin_layout Plain Layout
 
-# summary(reg)
+> summary(reg2)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Call:
+\end_layout
+
+\begin_layout Plain Layout
+
+lm(formula = y ~ x2)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Residuals:
+\end_layout
+
+\begin_layout Plain Layout
+
+    Min      1Q  Median      3Q     Max 
+\end_layout
+
+\begin_layout Plain Layout
+
+-1.1672 -0.2402 -0.0225  0.2977  1.0193 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Coefficients:
+\end_layout
+
+\begin_layout Plain Layout
+
+             Estimate Std.
+ Error t value Pr(>|t|)    
+\end_layout
+
+\begin_layout Plain Layout
+
+(Intercept) -1.873921   0.345709  -5.421  3.2e-07 ***
+\end_layout
+
+\begin_layout Plain Layout
+
+x2           0.041944   0.002915  14.389  < 2e-16 ***
+\end_layout
+
+\begin_layout Plain Layout
+
+---
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Residual standard error: 0.3899 on 118 degrees of freedom
+\end_layout
+
+\begin_layout Plain Layout
+
+Multiple R-squared:  0.637,	Adjusted R-squared:  0.6339 
+\end_layout
+
+\begin_layout Plain Layout
+
+F-statistic:   207 on 1 and 118 DF,  p-value: < 2.2e-16
 \end_layout
 
 \end_inset
@@ -865,6 +990,24 @@ status open
 
 \begin_layout Paragraph
 Hypotheses and Interpretation:
+\end_layout
+
+\begin_layout Itemize
+The null hypothesis for the intercept test is that 
+\begin_inset Formula $\beta_{0}=0$
+\end_inset
+
+.
+ Since the p-value is less than 0.05 we reject the null hypothesis.
+\end_layout
+
+\begin_layout Itemize
+The null hypothesis for the 'x' test is that 
+\begin_inset Formula $\beta_{1}=0$
+\end_inset
+
+.
+ Since the p-value is less than 0.05 we reject the null hypothesis.
 \end_layout
 
 \begin_layout Subsection
@@ -883,11 +1026,14 @@ Interpretation of
 \begin_inset Formula $b_{0}$
 \end_inset
 
- represents: 
+ represents the expected GPA when the intelligence score is 0 (a non realistic
+ number).
+ 
 \begin_inset Formula $b_{1}$
 \end_inset
 
- represents:
+ is the estimated average increase in GPA for each increase of 1 in the
+ intelligence score.
 \end_layout
 
 \begin_layout Subsection
@@ -952,7 +1098,7 @@ Interval
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+(-2.56, -1.19)
 \end_layout
 
 \end_inset
@@ -975,7 +1121,7 @@ Interval
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+(0.036, 0.048)
 \end_layout
 
 \end_inset
@@ -1117,8 +1263,141 @@ Q-Q Plot
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[width=3.0in]{1-scatter-3-2}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Scatter Plot for 
+\begin_inset Formula $y^{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[width=3.0in]{1-resid-3-2}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Residuals Plot for 
+\begin_inset Formula $y^{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[width=3.0in]{1-qq-3-2}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Q-Q Plot for 
+\begin_inset Formula $y^{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
-Levene's Test
+Breusch-Pagan Test
 \end_layout
 
 \begin_layout Standard
@@ -1128,7 +1407,131 @@ status open
 
 \begin_layout Plain Layout
 
-# Levene's Test
+> bptest(reg3)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	studentized Breusch-Pagan test
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+data:  reg3
+\end_layout
+
+\begin_layout Plain Layout
+
+BP = 8.5803, df = 1, p-value = 0.003398
+\end_layout
+
+\begin_layout Plain Layout
+
+## Didn't work; try transformations
+\end_layout
+
+\begin_layout Plain Layout
+
+> transform(y,x3)
+\end_layout
+
+\begin_layout Plain Layout
+
+[1] "Running transformations for y, x"
+\end_layout
+
+\begin_layout Plain Layout
+
+       name     p     r2     bp
+\end_layout
+
+\begin_layout Plain Layout
+
+1       x^2 0e+00 0.1480 0.0074
+\end_layout
+
+\begin_layout Plain Layout
+
+2   sqrt(x) 0e+00 0.1317 0.0019
+\end_layout
+
+\begin_layout Plain Layout
+
+3       1/x 2e-04 0.1138 0.0006
+\end_layout
+
+\begin_layout Plain Layout
+
+4 log(x,10) 1e-04 0.1262 0.0010
+\end_layout
+
+\begin_layout Plain Layout
+
+5       y^2 1e-04 0.1275 0.1739
+\end_layout
+
+\begin_layout Plain Layout
+
+6   sqrt(y) 0e+00 0.1423 0.0009
+\end_layout
+
+\begin_layout Plain Layout
+
+7       1/y 1e-04 0.1183 0.0035
+\end_layout
+
+\begin_layout Plain Layout
+
+8 log(y,10) 0e+00 0.1441 0.0010
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+reg3 <- lm(y^2~x3)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+> bptest(reg3)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	studentized Breusch-Pagan test
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+data:  reg3
+\end_layout
+
+\begin_layout Plain Layout
+
+BP = 1.849, df = 1, p-value = 0.1739
 \end_layout
 
 \end_inset
@@ -1138,6 +1541,15 @@ status open
 
 \begin_layout Paragraph
 Interpretation:
+\end_layout
+
+\begin_layout Standard
+Initially the error variances were not constant.
+ However, the transformation 
+\begin_inset Formula $y\Rightarrow y^{2}$
+\end_inset
+
+has an acceptable p-value.
 \end_layout
 
 \begin_layout Subsection
@@ -1151,7 +1563,41 @@ status open
 
 \begin_layout Plain Layout
 
-# ANOVA Table
+> anova(reg3)
+\end_layout
+
+\begin_layout Plain Layout
+
+Analysis of Variance Table
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Response: y^2
+\end_layout
+
+\begin_layout Plain Layout
+
+           Df  Sum Sq Mean Sq F value    Pr(>F)    
+\end_layout
+
+\begin_layout Plain Layout
+
+x3          1  205.11 205.110  17.248 6.232e-05 ***
+\end_layout
+
+\begin_layout Plain Layout
+
+Residuals 118 1403.25  11.892                      
+\end_layout
+
+\begin_layout Plain Layout
+
+---
 \end_layout
 
 \end_inset
@@ -1161,6 +1607,15 @@ status open
 
 \begin_layout Paragraph
 Hypothesis and Interpretation:
+\end_layout
+
+\begin_layout Standard
+The null hypothesis is that 
+\begin_inset Formula $\beta_{0}=\beta_{1}=0$
+\end_inset
+
+.
+ Since the p-values is less than 0.05, we reject the null hypothesis.
 \end_layout
 
 \begin_layout Subsection
@@ -1174,7 +1629,89 @@ status open
 
 \begin_layout Plain Layout
 
-# summary(reg)
+> summary(reg3)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Call:
+\end_layout
+
+\begin_layout Plain Layout
+
+lm(formula = y^2 ~ x3)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Residuals:
+\end_layout
+
+\begin_layout Plain Layout
+
+    Min      1Q  Median      3Q     Max 
+\end_layout
+
+\begin_layout Plain Layout
+
+-7.8458 -2.4896  0.0997  3.1616  7.5275 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Coefficients:
+\end_layout
+
+\begin_layout Plain Layout
+
+            Estimate Std.
+ Error t value Pr(>|t|)    
+\end_layout
+
+\begin_layout Plain Layout
+
+(Intercept)  5.63955    1.06422   5.299 5.48e-07 ***
+\end_layout
+
+\begin_layout Plain Layout
+
+x3           0.05733    0.01380   4.153 6.23e-05 ***
+\end_layout
+
+\begin_layout Plain Layout
+
+---
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Residual standard error: 3.448 on 118 degrees of freedom
+\end_layout
+
+\begin_layout Plain Layout
+
+Multiple R-squared:  0.1275,	Adjusted R-squared:  0.1201 
+\end_layout
+
+\begin_layout Plain Layout
+
+F-statistic: 17.25 on 1 and 118 DF,  p-value: 6.232e-05
 \end_layout
 
 \end_inset
@@ -1204,6 +1741,16 @@ The null hypothesis for the 'x' test is that
  Since the p-value is less than 0.05 we reject the null hypothesis.
 \end_layout
 
+\begin_layout Itemize
+The 
+\begin_inset Formula $R^{2}$
+\end_inset
+
+ value is low, so the correlation is not very good.
+ Previous attempts at transformations did not show a significantly improvement
+ (see Breusch-Pagan test above).
+\end_layout
+
 \begin_layout Subsection
 Interpretation of 
 \begin_inset Formula $b_{0}$
@@ -1220,11 +1767,13 @@ Interpretation of
 \begin_inset Formula $b_{0}$
 \end_inset
 
- represents: 
+ is our estimate of the square of the GPA when class rank is 0.
+ 
 \begin_inset Formula $b_{1}$
 \end_inset
 
- represents:
+ is our estimate of the increase in the square of the GPA for every increase
+ of 1 in class rank.
 \end_layout
 
 \begin_layout Subsection
@@ -1238,7 +1787,7 @@ status open
 
 \begin_layout Plain Layout
 
-# confidence intervals
+confint(reg3)
 \end_layout
 
 \end_inset
@@ -1289,7 +1838,7 @@ Interval
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+(3.53, 7.75)
 \end_layout
 
 \end_inset
@@ -1312,7 +1861,7 @@ Interval
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+(0.030, 0.085)
 \end_layout
 
 \end_inset
@@ -3073,7 +3622,11 @@ Interval
 \end_layout
 
 \begin_layout Section
-Functions Used
+Additional R Code
+\end_layout
+
+\begin_layout Standard
+The transform function was used to check transformations:
 \end_layout
 
 \begin_layout Standard
@@ -3082,26 +3635,52 @@ inline false
 status open
 
 \begin_layout Plain Layout
+
 anvp <- function(y,x) {
 \end_layout
 
 \begin_layout Plain Layout
+
     return(round(anova(lm(y~x))$Pr[1], 4))
 \end_layout
 
 \begin_layout Plain Layout
+
 }
 \end_layout
 
 \begin_layout Plain Layout
+
 sr <- function(y,x) {
 \end_layout
 
 \begin_layout Plain Layout
+
     return(round(summary(lm(y~x))$r.squared, 4))
 \end_layout
 
 \begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+bpp <- function(y,x) {
+\end_layout
+
+\begin_layout Plain Layout
+
+    ## requires lmtest
+\end_layout
+
+\begin_layout Plain Layout
+
+    return(round(bptest(lm(y~x))$p.value, 4))
+\end_layout
+
+\begin_layout Plain Layout
+
 }
 \end_layout
 
@@ -3110,10 +3689,12 @@ sr <- function(y,x) {
 \end_layout
 
 \begin_layout Plain Layout
+
 transform <- function(y,x) {
 \end_layout
 
 \begin_layout Plain Layout
+
     print("Running transformations for y, x")
 \end_layout
 
@@ -3122,51 +3703,67 @@ transform <- function(y,x) {
 \end_layout
 
 \begin_layout Plain Layout
+
     name <- c("x^2","sqrt(x)","1/x","log(x,10)","y^2","sqrt(y)","1/y","log(y,10)
 ")
 \end_layout
 
 \begin_layout Plain Layout
+
     p <- vector(mode="numeric", length=8)
 \end_layout
 
 \begin_layout Plain Layout
+
     r2 <- vector(mode="numeric", length=8)
 \end_layout
 
 \begin_layout Plain Layout
 
+    bp <- vector(mode="numeric", length=8)
 \end_layout
 
 \begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
     p[1] <- anvp(y,x^2)
 \end_layout
 
 \begin_layout Plain Layout
+
     p[2] <- anvp(y,sqrt(x))
 \end_layout
 
 \begin_layout Plain Layout
+
     p[3] <- anvp(y,1/x)
 \end_layout
 
 \begin_layout Plain Layout
+
     p[4] <- anvp(y,log(x,10))
 \end_layout
 
 \begin_layout Plain Layout
+
     p[5] <- anvp(y^2,x)
 \end_layout
 
 \begin_layout Plain Layout
+
     p[6] <- anvp(sqrt(y),x)
 \end_layout
 
 \begin_layout Plain Layout
+
     p[7] <- anvp(1/y,x)
 \end_layout
 
 \begin_layout Plain Layout
+
     p[8] <- anvp(log(y,10),x)
 \end_layout
 
@@ -3175,51 +3772,111 @@ transform <- function(y,x) {
 \end_layout
 
 \begin_layout Plain Layout
+
     r2[1] <- sr(y,x^2)
 \end_layout
 
 \begin_layout Plain Layout
+
     r2[2] <- sr(y,sqrt(x))
 \end_layout
 
 \begin_layout Plain Layout
+
     r2[3] <- sr(y,1/x)
 \end_layout
 
 \begin_layout Plain Layout
+
     r2[4] <- sr(y,log(x,10))
 \end_layout
 
 \begin_layout Plain Layout
+
     r2[5] <- sr(y^2,x)
 \end_layout
 
 \begin_layout Plain Layout
+
     r2[6] <- sr(sqrt(y),x)
 \end_layout
 
 \begin_layout Plain Layout
+
     r2[7] <- sr(1/y,x)
 \end_layout
 
 \begin_layout Plain Layout
+
     r2[8] <- sr(log(y,10),x)
 \end_layout
 
 \begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    bp[1] <- bpp(y,x^2)
+\end_layout
+
+\begin_layout Plain Layout
+
+    bp[2] <- bpp(y,sqrt(x))
+\end_layout
+
+\begin_layout Plain Layout
+
+    bp[3] <- bpp(y,1/x)
+\end_layout
+
+\begin_layout Plain Layout
+
+    bp[4] <- bpp(y,log(x,10))
+\end_layout
+
+\begin_layout Plain Layout
+
+    bp[5] <- bpp(y^2,x)
+\end_layout
+
+\begin_layout Plain Layout
+
+    bp[6] <- bpp(sqrt(y),x)
+\end_layout
+
+\begin_layout Plain Layout
+
+    bp[7] <- bpp(1/y,x)
+\end_layout
+
+\begin_layout Plain Layout
+
+    bp[8] <- bpp(log(y,10),x)
+\end_layout
+
+\begin_layout Plain Layout
+
      
 \end_layout
 
 \begin_layout Plain Layout
-    result <- data.frame(name, p, r2, stringsAsFactors=F)
+
+    result <- data.frame(name, p, r2, bp, stringsAsFactors=F)
 \end_layout
 
 \begin_layout Plain Layout
+
     return(result)
 \end_layout
 
 \begin_layout Plain Layout
+
 }
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \end_inset
