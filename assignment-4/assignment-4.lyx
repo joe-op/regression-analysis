@@ -95,14 +95,17 @@ Plots
 \end_layout
 
 \begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="2">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
 
 \begin_layout Plain Layout
-\align center
 \begin_inset ERT
 status open
 
@@ -118,35 +121,12 @@ includegraphics[width=3.0in]{1-scatter-1}
 
 \end_layout
 
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Scatter Plot
-\end_layout
-
 \end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
 
 \begin_layout Plain Layout
-\align center
 \begin_inset ERT
 status open
 
@@ -162,35 +142,14 @@ includegraphics[width=3.0in]{1-resid-1}
 
 \end_layout
 
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Residuals Plot
-\end_layout
-
 \end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
 
 \begin_layout Plain Layout
-\align center
 \begin_inset ERT
 status open
 
@@ -206,21 +165,19 @@ includegraphics[width=3.0in]{1-qq-1}
 
 \end_layout
 
-\begin_layout Plain Layout
-\begin_inset Caption Standard
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
 
 \begin_layout Plain Layout
-Q-Q Plot
+
 \end_layout
 
 \end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
+</cell>
+</row>
+</lyxtabular>
 
 \end_inset
 
@@ -678,14 +635,17 @@ Plots
 \end_layout
 
 \begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="2">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
 
 \begin_layout Plain Layout
-\align center
 \begin_inset ERT
 status open
 
@@ -701,31 +661,12 @@ includegraphics[width=3.0in]{1-scatter-2}
 
 \end_layout
 
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Scatter Plot
-\end_layout
-
 \end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
 
 \begin_layout Plain Layout
-\align center
 \begin_inset ERT
 status open
 
@@ -741,31 +682,14 @@ includegraphics[width=3.0in]{1-resid-2}
 
 \end_layout
 
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Residuals Plot
-\end_layout
-
 \end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
 
 \begin_layout Plain Layout
-\align center
 \begin_inset ERT
 status open
 
@@ -781,17 +705,19 @@ includegraphics[width=3.0in]{1-qq-2}
 
 \end_layout
 
-\begin_layout Plain Layout
-\begin_inset Caption Standard
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
 
 \begin_layout Plain Layout
-Q-Q Plot
+
 \end_layout
 
 \end_inset
-
-
-\end_layout
+</cell>
+</row>
+</lyxtabular>
 
 \end_inset
 
@@ -799,7 +725,7 @@ Q-Q Plot
 \end_layout
 
 \begin_layout Subsection
-Levene's Test
+Breusch-Pagan Test
 \end_layout
 
 \begin_layout Standard
@@ -809,7 +735,30 @@ status open
 
 \begin_layout Plain Layout
 
-# Levene's Test
+> bptest(reg2)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	studentized Breusch-Pagan test
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+data:  reg2
+\end_layout
+
+\begin_layout Plain Layout
+
+BP = 2.2309, df = 1, p-value = 0.1353
 \end_layout
 
 \end_inset
@@ -819,6 +768,11 @@ status open
 
 \begin_layout Paragraph
 Interpretation:
+\end_layout
+
+\begin_layout Standard
+The p-value is greater than 0.05, so we accept the null hypothesis that the
+ error variances are constant.
 \end_layout
 
 \begin_layout Subsection
@@ -1143,14 +1097,17 @@ Plots
 \end_layout
 
 \begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="2">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
 
 \begin_layout Plain Layout
-\align center
 \begin_inset ERT
 status open
 
@@ -1166,112 +1123,12 @@ includegraphics[width=3.0in]{1-scatter-3}
 
 \end_layout
 
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Scatter Plot
-\end_layout
-
 \end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
 
 \begin_layout Plain Layout
-\align center
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-includegraphics[width=3.0in]{1-resid-3}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Residuals Plot
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-includegraphics[width=3.0in]{1-qq-3}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Q-Q Plot
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
 \begin_inset ERT
 status open
 
@@ -1287,35 +1144,35 @@ includegraphics[width=3.0in]{1-scatter-3-2}
 
 \end_layout
 
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
 \begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Scatter Plot for 
-\begin_inset Formula $y^{2}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
+\begin_inset ERT
 status open
 
 \begin_layout Plain Layout
-\align center
+
+
+\backslash
+includegraphics[width=3.0in]{1-resid-3}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 \begin_inset ERT
 status open
 
@@ -1331,35 +1188,35 @@ includegraphics[width=3.0in]{1-resid-3-2}
 
 \end_layout
 
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
 \begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Residuals Plot for 
-\begin_inset Formula $y^{2}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
+\begin_inset ERT
 status open
 
 \begin_layout Plain Layout
-\align center
+
+
+\backslash
+includegraphics[width=3.0in]{1-qq-3}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 \begin_inset ERT
 status open
 
@@ -1375,21 +1232,10 @@ includegraphics[width=3.0in]{1-qq-3-2}
 
 \end_layout
 
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Q-Q Plot for 
-\begin_inset Formula $y^{2}$
 \end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
+</cell>
+</row>
+</lyxtabular>
 
 \end_inset
 
@@ -1549,7 +1395,7 @@ Initially the error variances were not constant.
 \begin_inset Formula $y\Rightarrow y^{2}$
 \end_inset
 
-has an acceptable p-value.
+ has an acceptable p-value.
 \end_layout
 
 \begin_layout Subsection
@@ -1747,7 +1593,7 @@ The
 \end_inset
 
  value is low, so the correlation is not very good.
- Previous attempts at transformations did not show a significantly improvement
+ Previous attempts at transformations did not show a significant improvement
  (see Breusch-Pagan test above).
 \end_layout
 
@@ -1883,13 +1729,17 @@ Plots
 \end_layout
 
 \begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="2">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
 
 \begin_layout Plain Layout
-\align center
 \begin_inset ERT
 status open
 
@@ -1905,31 +1755,12 @@ includegraphics[width=3.0in]{2-scatter-1}
 
 \end_layout
 
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Scatter Plot
-\end_layout
-
 \end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
 
 \begin_layout Plain Layout
-\align center
 \begin_inset ERT
 status open
 
@@ -1945,31 +1776,14 @@ includegraphics[width=3.0in]{2-resid-1}
 
 \end_layout
 
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Residuals Plot
-\end_layout
-
 \end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
 
 \begin_layout Plain Layout
-\align center
 \begin_inset ERT
 status open
 
@@ -1985,17 +1799,19 @@ includegraphics[width=3.0in]{2-qq-1}
 
 \end_layout
 
-\begin_layout Plain Layout
-\begin_inset Caption Standard
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
 
 \begin_layout Plain Layout
-Q-Q Plot
+
 \end_layout
 
 \end_inset
-
-
-\end_layout
+</cell>
+</row>
+</lyxtabular>
 
 \end_inset
 
@@ -2372,14 +2188,17 @@ Plots
 \end_layout
 
 \begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="2">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
 
 \begin_layout Plain Layout
-\align center
 \begin_inset ERT
 status open
 
@@ -2395,31 +2214,12 @@ includegraphics[width=3.0in]{2-scatter-2}
 
 \end_layout
 
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Scatter Plot
-\end_layout
-
 \end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
 
 \begin_layout Plain Layout
-\align center
 \begin_inset ERT
 status open
 
@@ -2435,46 +2235,14 @@ includegraphics[width=3.0in]{2-scatter-2-transform}
 
 \end_layout
 
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Scatter Plot for 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-$y=log_{10}y$
-\end_layout
-
 \end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
 \begin_inset ERT
 status open
 
@@ -2490,43 +2258,12 @@ includegraphics[width=3.0in]{2-resid-2-transform}
 
 \end_layout
 
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Residuals Plot for 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-$y=log_{10}y$
-\end_layout
-
 \end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
 \begin_inset ERT
 status open
 
@@ -2542,32 +2279,10 @@ includegraphics[width=3.0in]{2-qq-2-transform}
 
 \end_layout
 
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-QQ Plot for 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-$y=log_{10}y$
-\end_layout
-
 \end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
+</cell>
+</row>
+</lyxtabular>
 
 \end_inset
 
@@ -3140,14 +2855,17 @@ Plots
 \end_layout
 
 \begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="2">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
 
 \begin_layout Plain Layout
-\align center
 \begin_inset ERT
 status open
 
@@ -3163,31 +2881,12 @@ includegraphics[width=3.0in]{3-scatter-1}
 
 \end_layout
 
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Scatter Plot
-\end_layout
-
 \end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
 
 \begin_layout Plain Layout
-\align center
 \begin_inset ERT
 status open
 
@@ -3203,31 +2902,14 @@ includegraphics[width=3.0in]{3-resid-1}
 
 \end_layout
 
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Residuals Plot
-\end_layout
-
 \end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
 
 \begin_layout Plain Layout
-\align center
 \begin_inset ERT
 status open
 
@@ -3243,17 +2925,19 @@ includegraphics[width=3.0in]{3-qq-1}
 
 \end_layout
 
-\begin_layout Plain Layout
-\begin_inset Caption Standard
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
 
 \begin_layout Plain Layout
-Q-Q Plot
+
 \end_layout
 
 \end_inset
-
-
-\end_layout
+</cell>
+</row>
+</lyxtabular>
 
 \end_inset
 
@@ -3626,7 +3310,7 @@ Additional R Code
 \end_layout
 
 \begin_layout Standard
-The transform function was used to check transformations:
+This transform function was used to check transformations:
 \end_layout
 
 \begin_layout Standard

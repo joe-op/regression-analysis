@@ -34,6 +34,11 @@ anova(reg1)
 
 ## x2: age of the copiers
 
+png("2-scatter-2.png")
+plot(x2, y, main="Scatter Plot", ylab="Minutes", xlab="Mean Age (Years)")
+abline(lm(y~x2))
+dev.off()
+
 anova(lm(y~x2)) ## p-value fails
 
 transform(y,x2) ## file transform.R; y=log(y,10) succeeds
@@ -43,24 +48,25 @@ y1 <- log(y, 10)
 reg2 <- lm(y1~x2)
 
 png("2-scatter-2-transform.png")
-plot(x2,y1)
+plot(x2,y1, ylab="Log Base 10 of Minutes", xlab="Mean Age (Years)", main="Scatter Plot for log(y) Transformation")
 abline(reg2)
 dev.off()
 
 e <- residuals(reg2)
 
 png("2-resid-2-transform.png")
-plot(x2,e)
+plot(x2,e, main="Residuals for log(y) Transformation")
 dev.off()
 
 png("2-qq-2-transform.png")
-qqnorm(e)
+qqnorm(e, main="Q-Q Plot for log(y) Transformation")
 qqline(e)
 dev.off()
 
 
 bptest(reg2)
 
+summary(reg2)
 
-
+confint(reg2)
 
